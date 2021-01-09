@@ -1,0 +1,30 @@
+version: '3.1'
+services:
+  db:
+    container_name: pricetag-database
+    image: postgres
+    restart: always
+    ports:
+    - 5432:5432
+    environment:
+      POSTGRES_USER: pricetag
+      POSTGRES_DB: pricetag
+      POSTGRES_PASSWORD: jj
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+    networks:
+      - dev
+
+  adminer:
+    container_name: pricetag-database-admin
+    image: adminer
+    restart: always
+    ports:
+      - 8091:8080
+    networks:
+      - dev
+
+networks:
+  dev:
+volumes:
+  postgres_data:
