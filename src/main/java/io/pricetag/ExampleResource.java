@@ -13,4 +13,11 @@ public class ExampleResource {
     public String hello() {
         return "hello";
     }
+
+    @Path("/potato")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String potato(){
+        return "potato";
+    }
 }
